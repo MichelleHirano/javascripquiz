@@ -1,0 +1,21 @@
+.highscore{
+    float: left;
+    color: plum;
+    font-size: small; 
+}
+
+.time{
+    float: right;
+    color: black;
+    font-size: small; 
+}
+
+.question{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-content: center;
+    font-size: large;
+    font-weight: bolder;
+    color: black;
+}

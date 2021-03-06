@@ -1,11 +1,18 @@
 //elements
-const start_btn = document.querySelector('.start-button button');
-const restart_btn = document.querySelector('.buttons .restart');
-const quiz_box = 
+let start_btn = document.querySelector('.start-button button');
+let restart_btn = document.querySelector('.buttons .restart');
+let quiz_box = document.querySelector('.quiz_box');
+let result_box = document.querySelector('.result_box');
+let option_list = document.querySelector('.option_list');
+let timeText = document.querySelector('.timer .time-text');
+let timeCount = document.querySelector('.timer .timer-sec');
 
 //If start quiz
 start_btn.onclick = () =>{
-    
+    quiz_box.classList.add("activeQuiz)"); //show quiz box
+    showQuestions(0); //calling showQuestions function
+    queCounter(1);
+    startTimer()
 }
 
 
@@ -18,16 +25,6 @@ var quizQuestions = [
             a:'short for varsity',
             b:'a name assigned to a literal value or object',
             c:'a simple collection of similar object that can be accessed by a variable'
-        }
-        correctAnswer:'b'
-    },
-
-    {
-        question:'What syntax can you use to hold your Javascript in HTML?',
-        answers:{
-            a:'<src>',
-            b:'<script>',
-            c:'<java>'
         }
         correctAnswer:'b'
     },

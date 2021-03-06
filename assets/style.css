@@ -21,22 +21,20 @@ header{
     z-index:9999;
 }
 
-.score{
+#startPageHighscore{
     font-size: small;
     color:#FC4445;
     font-weight: bold;
 }
 
-.timer-text,
-.timer-sec {
+#timer{
     font-size: small;
     color:var(--regular-text);
     font-weight: bold;
 }
 
 .start-button,
-.quiz_box,
-.result_box{
+.container{
     position: absolute;
     top: 50%;
     left: 50%;
@@ -66,22 +64,14 @@ header{
     border-radius: 5px;
 }
 
-.quiz_box section{
+.quiz_box #questions{
     padding: 25px 30px 20px 30px;
     background: whitesmoke;
 }
 
-.quiz_box section .que_text{
-    font-size: 25px;
-    font-weight: 600;
-}
-
-.quiz_box section .option_list{
-    padding: 20px 0;
-    display: block;
-}
-
-section .option_list .option{
+.quiz_box  #a,
+#b,
+#c{
     background:whitesmoke;
     border: 1px solid var(--bright-text);
     border-radius: 5px;
@@ -94,102 +84,10 @@ section .option_list .option{
     font-size:17px;
 }
 
-section .option_list .option:hover{
+#questions #a,
+#b,
+#c:hover{
     color:white;
     background: var(--bright-text);
     border-color:var(--secondary-background);
-}
-
-.option_list .option_list:last-child{
-    margin-bottom:0px;
-}
-
-.quiz_box footer{
-    height: 60px;
-    width: 100%;
-    padding: 0 30px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-}
-
-.quiz_box footer .total_que span{
-    display: inline;
-    user-select: none;
-   
-   
-}
-
-footer .total_que span p{
-    font-weight: 500;
-    padding: 0 5px;
-    display: inline;
-    
-}
-footer .total_que span p:first-child{
-    padding-left: 0px;
-}
-
-footer .next_btn{
-    height: 40px;
-    padding: 0 10px;
-    font-size: 15px;
-    font-weight: 400;
-    border: none;
-    outline: none;
-    background: var(--secondary-text);
-    color:whitesmoke;
-    border-radius: 5px;
-    border:1px solid whitesmoke;
-    cursor: pointer;
-}
-
-footer .next_btn:hover{
-    background: whitesmoke;
-    color: var(--secondary-text);
-}
-
-.result_box{
-    background: whitesmoke;
-    width: 450px;
-    padding: 25px 30px;
-    border-radius: 5px;
-    display: flex;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.result_box .complete_text{
-    font-size: 20px ;
-    font-weight: 500;
-}
-
-.result_box .score_text span{
-    display: inline;
-    margin: 10px 0;
-    font-size: 18px;
-    font-weight: 500;
-}
-
-.score_text span p{
-    font-weight: 600;
-    padding: 0 40px;
-    display: inline;
-}
-
-.result_box .buttons{
-    display: flex;
-    margin:20px 0;
-}
-
-.result_box .buttons button{
-    margin: 0 10px;
-    height: 40px;
-    padding: 0 20px;
-    border:none;
-    font-size: 18px;
-    font-weight: 500;
-    border-radius: 5px;
-    border: 1px solid 
 }

@@ -8,71 +8,58 @@
 </head>
 <body>
     <header class=head>
-        <div class=score>
-            <h1 class=highscore> View High Scores</h1>
+            <h1 class=header> Javascript Quiz Game</h1>
         </div>
 
-        <div class ="time-text"> Time </div>
-        <div class ="timer-sec">15</div>
     </header>
 
+    <div class="container">
+    <!--start button-->
     <div class ='start-button'>
         <button>Start</button>
     </div>
 
+    <!--highscore-->
+    <button id="startPageHighscore" onlick="showHighscore()"> High Scores</button>"
+
     <!--Questions-->
     <main>
          <div class=quiz_box> 
-            <section>
-                <div class="que_text">
-                    <span>What does var mean?</span>
-                </div>
-
-                <div class="option_list">
-                    <div class="option">
-                        <span> varsity </span>
-                    </div>
-                </div>
-
-                <div class="option_list">
-                    <div class="option">
-                        <span> literal name of value or object </span>
-                    </div>
-                </div>
-
-                <div class="option_list">
-                    <div class="option">
-                        <span> other </span>
-                    </div>
-                </div>
-            </section>
-        
-
-        <!--Quix Footer-->
-            <footer>
-                <div class="total_que">
-                    <span> 
-                        <p>2</p>of<p>5</p>Questions
-                    </span>
-                </div>
-                <button class="next_btn">Next Question</button>
-            </footer>
+            <div id="timer"> Time Left:</div>
+                <div id="questions"><p>Questions Here</p></div>
+                    <button id="a" onlick="checkAnswer('a')">A</button>
+                    <button id="b" onlick="checkAnswer('b')">B</button>
+                    <button id="c" onlick="checkAnswer('c')">C</button>
+            <div id="result"></div>
         </div>
 
-    <!--Results-->
-        <div class="result_box">
-            <div class="complete_text">
-                Congratulations!
-            </div>
-            <div class="score_text">
-                <span>You got <p>2</p> out of <p>5</p> </span>
-            </div>
-            <div class="buttons">
-                <button class="restart">Play again!</button>
-            </div>
+    <!--input final score-->
+        <div id="gameover">
+            <div id="finalScore"></div>
+            <input type="text" placeholder="nter your initials for high score" name="intials" id="initials"/>
+            <button id="submitScore"> Submit Score</button>
         </div>
 
+    <!-- High Score Container-->
+
+        <div id=highscoreContainer>
+            <div id="high-scorePage">
+                <div id="highscore-header">
+                    <h3> User Initials</h3>
+                    <h3>Score</h3>
+                </div>
+                <div id="highscore-initials"></div>
+                <div id="high-score-score"></div>
+            </div>
+
+        <!--Replay Button-->
+            <div id="endGameBtns">
+                 <button id="playAgain" onclick="replayQuiz()">Play Again</button>
+            </div>
+        </div>
+ 
     </main>
+    </div>
     
     <script src="script.js"></script>
 </body>

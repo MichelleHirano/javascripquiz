@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Javascript Quiz</title>
+    <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 <body>
     <header class=head>
@@ -11,16 +12,66 @@
             <h1 class=highscore> View High Scores</h1>
         </div>
 
-        <div clas=timer>
-            <h1 class=time>
-                Time:
-            </h1>
-        </div>
+        <div class ="time-text"> Time </div>
+        <div class ="timer-sec">15</div>
     </header>
 
+    <div class ='start-button'>
+        <button>Start</button>
+    </div>
+
+    <!--Questions-->
     <main>
-        <div class=question> </div>
-        <div class=answers></div>
+         <div class=quiz_box> 
+            <section>
+                <div class="que_text">
+                    <span>What does var mean?</span>
+                </div>
+
+                <div class="option_list">
+                    <div class="option">
+                        <span> varsity </span>
+                    </div>
+                </div>
+
+                <div class="option_list">
+                    <div class="option">
+                        <span> literal name of value or object </span>
+                    </div>
+                </div>
+
+                <div class="option_list">
+                    <div class="option">
+                        <span> other </span>
+                    </div>
+                </div>
+            </section>
+        
+
+        <!--Quix Footer-->
+            <footer>
+                <div class="total_que">
+                    <span> 
+                        <p>2</p>of<p>5</p>Questions
+                    </span>
+                </div>
+                <button class="next_btn">Next Question</button>
+            </footer>
+        </div>
+
+    <!--Results-->
+        <div class="result_box">
+            <div class="complete_text">
+                Congratulations!
+            </div>
+            <div class="score_text">
+                <span>You got <p>2</p> out of <p>5</p> </span>
+            </div>
+            <div class="buttons">
+                <button class="restart">Play again!</button>
+            </div>
+        </div>
+
     </main>
     
     <script src="script.js"></script>

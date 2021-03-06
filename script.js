@@ -1,13 +1,26 @@
+//elements
+const start_btn = document.querySelector('.start-button button');
+const restart_btn = document.querySelector('.buttons .restart');
+const quiz_box = 
+
+//If start quiz
+start_btn.onclick = () =>{
+    
+}
+
+
+
 //Array for questions and answers
 var quizQuestions = [
     {
         question:'what is a var?',
         answers:{
             a:'short for varsity',
-            b:'a name assigned to a literal valu eor object',
+            b:'a name assigned to a literal value or object',
             c:'a simple collection of similar object that can be accessed by a variable'
         }
-    }
+        correctAnswer:'b'
+    },
 
     {
         question:'What syntax can you use to hold your Javascript in HTML?',
@@ -16,7 +29,8 @@ var quizQuestions = [
             b:'<script>',
             c:'<java>'
         }
-    }
+        correctAnswer:'b'
+    },
 
     {
         question:'Which is not a valid JavaScript name?',
@@ -25,7 +39,8 @@ var quizQuestions = [
             b:'he_llo',
             c:'javascriptQuiz'        
         }
-    }
+        correctAnswer:'a'
+    },
 
     {
         question:'Using ___ statement is how you test for a specific condition',
@@ -35,9 +50,19 @@ var quizQuestions = [
             c:'If'
         }
     }
-
-    {
-        question:''
-    }
+    correctAnswer:'c'
 
 ]
+
+//asking the question
+function buildQuiz(){
+    var output[];
+
+    //each question
+    quizQuestions.forEach(
+        ()
+    )
+
+}
+
+

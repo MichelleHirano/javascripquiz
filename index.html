@@ -7,23 +7,17 @@
     <link rel="stylesheet" type="text/css" href="assets/style.css">
 </head>
 <body>
-    <header class=head>
-            <h1 class=header> Javascript Quiz Game</h1>
-        </div>
-
-    </header>
   
 <div class="container">
 
     <div id="startpage">
-        <h2>This quiz will test your knowledge</h2>
-        <h2>of various coding and web design concepts</h2>
-    <button id="startbtn">Start Code Quiz</button>
+        <h2>This quiz will test your knowledge of Javascript</h2>
+    <button id="startbtn">Start Quiz</button>
     <button id="startPageHighscore" onclick="showHighscore()">High Scores</button>
     </div>
     <!--Questions-->
-    <main>
-         <div id=quiz> 
+    
+         <div id="quiz"> 
             <div id="timer"> Time Left:</div>
                 <div id="questions"><p>Questions Here</p></div>
                     <button id="a" onclick="checkAnswer('a')" >A</button>
@@ -31,7 +25,6 @@
                     <button id="c" onclick="checkAnswer('c')">C</button>
             <div id="result"></div>
         </div>
-    </div>
 
     <!--input final score-->
         <div id="gameover">
@@ -45,7 +38,7 @@
         <div id=highscoreContainer>
             <div id="high-scorePage">
                 <div id="highscore-header">
-                    <h3> User Initials</h3>
+                    <h3> Your Initials</h3>
                     <h3>Score</h3>
                 </div>
                 <div id="highscore-initials"></div>
@@ -55,10 +48,9 @@
         <!--Replay Button-->
             <div id="endGameBtns">
                  <button id="playAgain" onclick="replayQuiz()">Play Again</button>
+                 <button id="clearHighscore" onclick="clearScore()">Clear Highscores</button>
             </div>
         </div>
- 
-    </main>
     </div>
     
     <script src="script.js"></script>

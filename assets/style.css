@@ -6,20 +6,6 @@
     --secondary-text:#0c0032;
 }
 
-body{
-    background: #cafafe;
-}
-
-header{
-    padding: 0 30px;
-    background: whitesmoke;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-radius: 5px 5px 0 0;
-    box-shadow: 0px 3px 5px 1px rgba(0,0,0,0.1);
-    z-index:9999;
-}
 
 li{
     padding-bottom: 3px;
@@ -48,6 +34,7 @@ input{
     display: flex;
     justify-content: center;
     align-items: center;
+    max-width: 80rem;
     margin: 0 auto;
 }
 

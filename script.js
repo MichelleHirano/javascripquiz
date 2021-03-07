@@ -1,5 +1,5 @@
 //elements
-var quizBody = document.getElementById("quiz");
+var quizBody = document.getElementById('quiz');
 var resultsEl = document.getElementById('result');
 var finalScoreEl = document.getElementById('finalScore');
 var gameoverDiv = document.getElementById('gameover');
@@ -111,7 +111,7 @@ function startQuiz(){
     }
         else{
             var savedHighscores = JSON.parse(localStorage.getItem('savedHighscores')) || [];
-            var currentUser = highscoreInputName.valure.trim();
+            var currentUser = highscoreInputName.value
             var currentHighscore = {
                 name: currentUser,
                 score: score
@@ -152,6 +152,13 @@ function startQuiz(){
         endGameBtns.style.display = "flex";
     
         generateHighscores();
+
+    }
+
+    function clearScore(){
+        window.localStorage.clear();
+        highscoreDisplayName.textContent = "";
+        highscoreDisplayScore.textContent = "";
     }
 
 
@@ -160,6 +167,7 @@ function startQuiz(){
     function replayQuiz(){
         highscoreContainer.style.display = "none";
         gameoverDiv.style.display = "none";
+        startQuizDiv.style.display = "flex";
         timeLeft = 60;
         score = 0;
         currentQuestionIndex = 0;
@@ -180,6 +188,7 @@ function startQuiz(){
         }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
             alert("That Is Incorrect.")
             currentQuestionIndex++;
+            timeLeft--;
             generateQuizQuestion();
             //display wrong
         }else{
@@ -187,4 +196,7 @@ function startQuiz(){
         }
     }
 
+
+// This button starts the quiz!
+startQuizButton.addEventListener("click",startQuiz);
    

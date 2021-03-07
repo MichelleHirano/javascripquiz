@@ -3,7 +3,7 @@ var quizBody = document.getElementById('quiz');
 var resultsEl = document.getElementById('result');
 var finalScoreEl = document.getElementById('finalScore');
 var gameoverDiv = document.getElementById('gameover');
-var questionsEl = document.getElementById('questions');
+var questions = document.getElementById('questions');
 var quizTimer = document.getElementById('timer');
 var startQuizButton = document.getElementById('startbtn');
 var startQuizDiv = document.getElementById('startpage');
@@ -23,27 +23,27 @@ var buttonC = document.getElementById('c');
 //Array for questions and answers
 var quizQuestions = [
     {
-        question:'what is a var?',
-            choiceA:'short for varsity',
-            choiceB:'a name assigned to a literal value or object',
-            choiceC:'a simple collection of similar object that can be accessed by a variable',
-        correctAnswer:'b'
+        question:"what is a var?",
+            choiceA:"short for varsity",
+            choiceB:"a name assigned to a literal value or object",
+            choiceC:"a simple collection of similar object that can be accessed by a variable",
+        correctAnswer:"b"
     },
 
     {
-        question:'Which is not a valid JavaScript name?',
-            choiceA:'5dots',
-            choiceB:'he_llo',
-            choiceC:'javascriptQuiz',        
-        correctAnswer:'a'
+        question:"Which is not a valid JavaScript name?",
+            choiceA:"5dots",
+            choiceB:"he_llo",
+            choiceC:"javascriptQuiz",        
+        correctAnswer:"a"
     },
 
     {
-        question:'Using ___ statement is how you test for a specific condition',
-            choiceA:'Select',
-            choiceB:'For',
-            choiceC:'If',
-        correctAnswer:'c'
+        question:"Using ___ statement is how you test for a specific condition",
+            choiceA:"Select",
+            choiceB:"For",
+            choiceC:"If",
+        correctAnswer:"c"
     },
 ];
 
@@ -55,19 +55,20 @@ var timeInterval;
 var score = 0;
 var correct;
 
-//Function to generate questions & answers
-function generateQuizQuestion(){
-    gameoverDiv.style.display = "none";
-    if(currentQuestionIndex === finalQuestionIndex){
-        return showScore();
-    }
+      //Function to generate questions & answers
+      function generateQuizQuestion(){
+        gameoverDiv.style.display = "none";
+        if(currentQuestionIndex === finalQuestionIndex){
+            return showScore();
+        }
+    
+        var currentQuestion = quizQuestions[currentQuestionIndex];
+        questions.innerhtml = "<div id='questions'>" + currentQuestion.question + "</div>";
+        buttonA.innerHTML = currentQuestion.choiceA;
+        buttonB.innerHTML = currentQuestion.choiceB;
+        buttonC.innerHTML = currentQuestion.choiceC;
+    };
 
-    var currentQuestion = quizQuestions[currentQuestionIndex];
-    questionsEl.innerhtml = "<p>" + currentQuestion.question + "</p>";
-    buttonA.innerHTML = currentQuestion.choiceA;
-    buttonB.innerHTML = currentQuestion.choiceB;
-    buttonC.innerHTML = currentQuestion.choiceC;
-};
 
 //Start Quiz!
 function startQuiz(){
@@ -88,9 +89,11 @@ function startQuiz(){
       }, 1000);
 
       quizBody.style.display = "block";
+
+
+
+startQuizButton.addEventListener("click", generateQuizQuestion);
 }
- //start quiz
- startQuizButton.addEventListener("click" ,startQuiz);
 
     //Score Display
 
@@ -99,7 +102,7 @@ function startQuiz(){
         gameoverDiv.style.display="flex";
         clearInterval(timerInterval);
         highscoreInputName.value = "";
-        finalScoreEl.innerHTML ="You got " + score +" out of " + quizQuestions.length + " correct"; 
+        finalScoreEl.innerHTML ="You got " + score + " out of " + quizQuestions.length + " correct"; 
      }
 
     //Local storage for high scores
@@ -108,10 +111,9 @@ function startQuiz(){
         if (highscoreInputName.value === ""){
             alert("Initials cannot be blank");
             return false;
-    }
-        else{
+    }else{
             var savedHighscores = JSON.parse(localStorage.getItem('savedHighscores')) || [];
-            var currentUser = highscoreInputName.value
+            var currentUser = highscoreInputName.value;
             var currentHighscore = {
                 name: currentUser,
                 score: score
@@ -184,6 +186,7 @@ function startQuiz(){
             alert("That Is Correct!");
             currentQuestionIndex++;
             generateQuizQuestion();
+
             //display correct
         }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
             alert("That Is Incorrect.")
@@ -196,7 +199,5 @@ function startQuiz(){
         }
     }
 
-
-// This button starts the quiz!
+    // This button starts the quiz!
 startQuizButton.addEventListener("click",startQuiz);
-   

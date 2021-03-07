@@ -16,14 +16,6 @@ var buttonA = document.getElementById('a');
 var buttonB = document.getElementById('b');
 var buttonC = document.getElementById('c');
 
-    // //If start quiz
-    // start_btn.onclick = () =>{
-    //     quiz_box.classList.add("activeQuiz)"); //show quiz box
-    //     showQuestions(0); //calling showQuestions function
-    //     queCounter(1);
-    //     startTimer()
-    // }
-
 
 
 //Array for questions and answers
@@ -55,7 +47,7 @@ var quizQuestions = [
 
 // Variables
 var finalQuestionIndex = quizQuestions.length;
-var currentQuestionIndex =0;
+var currentQuestionIndex = 0;
 var timeLeft = 60;
 var timeInterval;
 var score = 0;
@@ -98,11 +90,54 @@ function startQuiz(){
 
     //Score Display
 
+    function showScore(){
+        quizBody.style.display="none"
+        gameoverDiv.style.display="flex";
+        clearInterval(timerInterval);
+        highscoreInputName.value = "";
+        finalScoreEl.innerHTML ="You got " + score +" out of " + quizQuestions.length + " correct" ; 
+     }
+
     //Local storage for high scores
+    submitScoreBtn.addEventListener("click" , function highscore() {
+
+        if (highscoreInputName.value === ""){
+            alert("Initials cannot be black");
+            return false;
+    }
+        else{
+            var savedHighscores = JSON.parse(localStorage.getItem('savedHighscores')) || [];
+            var currentUser = highscoreInputName.valure.trim();
+            var currentHighscore ={
+                name: currentUser,
+                score: score
+            };
+
+            gameoverDiv.style.display = "none";
+            highscoreContainer.style.display = "flex";
+            highscoreDiv.style.display = "block";
+            endGameBtns.style.display = "flex";
+
+            savedHighscores.push(currentHighscore);
+            localStorage.setItem("savedHighscores", JSON.stringify(savedHighscores));
+            generateHighscores();
+
+        }
+    //Highscore Page Only
+    function showHighscore(){
+        startQuizDiv.style.display = "none"
+        gameoverDiv.style.display = "none";
+        highscoreContainer.style.display = "flex";
+        highscoreDiv.style.display = "block";
+        endGameBtns.style.display = "flex";
+    
+        generateHighscores();
+    }
+
 
     //replay quiz
 
     //this function checks answers
 
     //start quiz
-
+      startQuizButton.addEventListener("click", startQuiz);

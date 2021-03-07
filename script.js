@@ -71,6 +71,38 @@ function generateQuizQuestion(){
 
     var currentQuestionIndex = quizQuestions[currentQuestionIndex];
     questionsEl.innerhtml = "<p>" + currentQuestionIndex.question + "</p>";
-    butto
+    buttonA.innerHTML = currentQuestion.choiceA;
+    buttonB.innerHTML = currentQuestion.choiceB;
+    buttonC.innerHTML = currentQuestion.choiceC;
+};
+
+//Start Quiz!
+function startQuiz(){
+    gameoverDiv.style.display="none";
+    startQuizDiv.style.display = "none";
+    generateQuizQuestion();
 }
+
+    //Timer   
+      timerInterval = setInterval(function() {
+          timeLeft--;
+          quizTimer.textContent = "Time left: " + timeLeft;
+
+          if(timeLeft === 0) {
+              clearInterval(timerInterval);
+              showScore();
+          }
+      }, 1000);
+
+      quizBody.style.display = "block";
+
+    //Score Display
+
+    //Local storage for high scores
+
+    //replay quiz
+
+    //this function checks answers
+
+    //start quiz
 

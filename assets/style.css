@@ -33,23 +33,16 @@ header{
     font-weight: bold;
 }
 
-.start-button,
-.container{
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
 
 .start-button button{
     font-size: 25px;
     font-weight: 500;
-    background: #FC4445;
+    background:whitesmoke;
     padding: 15px 30px;
-    outline:none;
-    border: none;
+    outline:var(--bright-text);
+    border: var(--bright-text);
     border-radius: 5px;
-    color:white;
+    color: var(--bright-text);
     border-radius: 5px;
     
 }
@@ -87,7 +80,7 @@ header{
 #questions #a,
 #b,
 #c:hover{
-    color:white;
+    color: var(--secondary-background);
     background: var(--bright-text);
     border-color:var(--secondary-background);
 }

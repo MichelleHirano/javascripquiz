@@ -1,10 +1,12 @@
 //elements
-var quizBody = document.getElementsByClassName("quiz_box");
+var quizBody = document.getElementById("quiz");
 var resultsEl = document.getElementById('result');
 var finalScoreEl = document.getElementById('finalScore');
 var gameoverDiv = document.getElementById('gameover');
+var questionsEl = document.getElementById('questions');
 var quizTimer = document.getElementById('timer');
-var startQuizButton = document.getElementById('startbutton');
+var startQuizButton = document.getElementById('startbtn');
+var startQuizDiv = document.getElementById('startpage');
 var highscoreContainer = document.getElementById('highscoreContainer');
 var highscoreDiv = document.getElementById('high-scorePage');
 var highscoreInputName = document.getElementById('initials');
@@ -87,6 +89,8 @@ function startQuiz(){
 
       quizBody.style.display = "block";
 }
+ //start quiz
+ startQuizButton.addEventListener("click" ,startQuiz);
 
     //Score Display
 
@@ -102,7 +106,7 @@ function startQuiz(){
     submitScoreBtn.addEventListener("click" , function highscore() {
 
         if (highscoreInputName.value === ""){
-            alert("Initials cannot be black");
+            alert("Initials cannot be blank");
             return false;
     }
         else{
@@ -156,7 +160,7 @@ function startQuiz(){
     function replayQuiz(){
         highscoreContainer.style.display = "none";
         gameoverDiv.style.display = "none";
-        timeLeft = 76;
+        timeLeft = 60;
         score = 0;
         currentQuestionIndex = 0;
     }
@@ -165,7 +169,7 @@ function startQuiz(){
     //this function checks answers
 
     function checkAnswer(answer){
-        correct = quizQuestions[currentQuestionIndex].correctAnswer;
+       var correct = quizQuestions[currentQuestionIndex].correctAnswer;
     
         if (answer === correct && currentQuestionIndex !== finalQuestionIndex){
             score++;
@@ -183,5 +187,4 @@ function startQuiz(){
         }
     }
 
-    //start quiz
-      startQuizButton.addEventListener("click" ,startQuiz);
+   

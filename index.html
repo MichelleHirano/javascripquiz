@@ -14,13 +14,16 @@
     </header>
   
 <div class="container">
-    <button id="startbutton">Start Code Quiz</button>
-    <!--highscore-->
-    <button id="startPageHighscore" onclick="showHighscore()"> High Scores</button>
 
+    <div id="startpage">
+        <h2>This quiz will test your knowledge</h2>
+        <h2>of various coding and web design concepts</h2>
+    <button id="startbtn">Start Code Quiz</button>
+    <button id="startPageHighscore" onclick="showHighscore()">High Scores</button>
+    </div>
     <!--Questions-->
     <main>
-         <div class=quiz_box> 
+         <div id=quiz> 
             <div id="timer"> Time Left:</div>
                 <div id="questions"><p>Questions Here</p></div>
                     <button id="a" onclick="checkAnswer('a')" >A</button>
@@ -33,7 +36,7 @@
     <!--input final score-->
         <div id="gameover">
             <div id="finalScore"></div>
-            <input type="text" placeholder="Enter your initials for high score" name="intials" id="initials"/>
+            <input type="text" size="40" placeholder="Enter your initials for high score" name="intials" id="initials"/>
             <button id="submitScore"> Submit Score</button>
         </div>
 

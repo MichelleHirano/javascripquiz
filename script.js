@@ -1,10 +1,10 @@
 //elements
-var quizBody = document.querySelector("quiz_box");
+var quizBody = document.getElementsByClassName("quiz_box");
 var resultsEl = document.getElementById('result');
 var finalScoreEl = document.getElementById('finalScore');
 var gameoverDiv = document.getElementById('gameover');
 var quizTimer = document.getElementById('timer');
-var startQuizButton = document.querySelector('start-button');
+var startQuizButton = document.getElementById('startbutton');
 var highscoreContainer = document.getElementById('highscoreContainer');
 var highscoreDiv = document.getElementById('high-scorePage');
 var highscoreInputName = document.getElementById('initials');
@@ -22,9 +22,9 @@ var buttonC = document.getElementById('c');
 var quizQuestions = [
     {
         question:'what is a var?',
-            a:'short for varsity',
-            b:'a name assigned to a literal value or object',
-            c:'a simple collection of similar object that can be accessed by a variable',
+            choiceA:'short for varsity',
+            choiceB:'a name assigned to a literal value or object',
+            choiceC:'a simple collection of similar object that can be accessed by a variable',
         correctAnswer:'b'
     },
 
@@ -42,7 +42,7 @@ var quizQuestions = [
             choiceB:'For',
             choiceC:'If',
         correctAnswer:'c'
-    }
+    },
 ];
 
 // Variables
@@ -54,15 +54,14 @@ var score = 0;
 var correct;
 
 //Function to generate questions & answers
-
 function generateQuizQuestion(){
     gameoverDiv.style.display = "none";
     if(currentQuestionIndex === finalQuestionIndex){
         return showScore();
     }
 
-    var currentQuestionIndex = quizQuestions[currentQuestionIndex];
-    questionsEl.innerhtml = "<p>" + currentQuestionIndex.question + "</p>";
+    var currentQuestion = quizQuestions[currentQuestionIndex];
+    questionsEl.innerhtml = "<p>" + currentQuestion.question + "</p>";
     buttonA.innerHTML = currentQuestion.choiceA;
     buttonB.innerHTML = currentQuestion.choiceB;
     buttonC.innerHTML = currentQuestion.choiceC;
@@ -73,7 +72,7 @@ function startQuiz(){
     gameoverDiv.style.display="none";
     startQuizDiv.style.display = "none";
     generateQuizQuestion();
-}
+
 
     //Timer   
       timerInterval = setInterval(function() {
@@ -87,6 +86,7 @@ function startQuiz(){
       }, 1000);
 
       quizBody.style.display = "block";
+}
 
     //Score Display
 
@@ -95,7 +95,7 @@ function startQuiz(){
         gameoverDiv.style.display="flex";
         clearInterval(timerInterval);
         highscoreInputName.value = "";
-        finalScoreEl.innerHTML ="You got " + score +" out of " + quizQuestions.length + " correct" ; 
+        finalScoreEl.innerHTML ="You got " + score +" out of " + quizQuestions.length + " correct"; 
      }
 
     //Local storage for high scores
@@ -108,7 +108,7 @@ function startQuiz(){
         else{
             var savedHighscores = JSON.parse(localStorage.getItem('savedHighscores')) || [];
             var currentUser = highscoreInputName.valure.trim();
-            var currentHighscore ={
+            var currentHighscore = {
                 name: currentUser,
                 score: score
             };
@@ -123,6 +123,22 @@ function startQuiz(){
             generateHighscores();
 
         }
+    });
+
+        function generateHighscores(){
+            highscoreDisplayName.innerHTML = "";
+            highscoreDisplayScore.innerHTML = "";
+            var highscores = JSON.parse(localStorage.getItem("savedHighscores")) || [];
+            for (i=0; i<highscores.length; i++){
+                var newNameSpan = document.createElement("li");
+                var newScoreSpan = document.createElement("li");
+                newNameSpan.textContent = highscores[i].name;
+                newScoreSpan.textContent = highscores[i].score;
+                highscoreDisplayName.appendChild(newNameSpan);
+                highscoreDisplayScore.appendChild(newScoreSpan);
+            }
+        }
+        
     //Highscore Page Only
     function showHighscore(){
         startQuizDiv.style.display = "none"
@@ -137,7 +153,35 @@ function startQuiz(){
 
     //replay quiz
 
+    function replayQuiz(){
+        highscoreContainer.style.display = "none";
+        gameoverDiv.style.display = "none";
+        timeLeft = 76;
+        score = 0;
+        currentQuestionIndex = 0;
+    }
+    
+
     //this function checks answers
 
+    function checkAnswer(answer){
+        correct = quizQuestions[currentQuestionIndex].correctAnswer;
+    
+        if (answer === correct && currentQuestionIndex !== finalQuestionIndex){
+            score++;
+            alert("That Is Correct!");
+            currentQuestionIndex++;
+            generateQuizQuestion();
+            //display correct
+        }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
+            alert("That Is Incorrect.")
+            currentQuestionIndex++;
+            generateQuizQuestion();
+            //display wrong
+        }else{
+            showScore();
+        }
+    }
+
     //start quiz
-      startQuizButton.addEventListener("click", startQuiz);
+      startQuizButton.addEventListener("click" ,startQuiz);

@@ -12,7 +12,7 @@ body{
 
 header{
     padding: 0 30px;
-    background: transparent;
+    background: whitesmoke;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -21,6 +21,16 @@ header{
     z-index:9999;
 }
 
+.container{
+    width: 100vw;
+    height: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto;
+}
+
+
 #startPageHighscore{
     font-size: small;
     color:#FC4445;
@@ -28,23 +38,32 @@ header{
 }
 
 #timer{
-    font-size: small;
     color:var(--regular-text);
-    font-weight: bold;
+    font-family: sans-serif;
+    background-color: var(--secondary-background);
+    font-size: medium;
+    text-align: left;
+    
 }
 
 
 .start-button button{
-    font-size: 25px;
-    font-weight: 500;
-    background:whitesmoke;
-    padding: 15px 30px;
-    outline:var(--bright-text);
-    border: var(--bright-text);
-    border-radius: 5px;
-    color: var(--bright-text);
-    border-radius: 5px;
+    display: inline-block;
+    font-family: sans-serif;
+    background-color:var(--bright-text);
+    border-radius: 10px;
+    border: 3px double #cccccc;
+    color: #eeeeee;
+    text-align: center;
+    font-size: 15px;
+    padding: 20px;
+    width: 200px;
+    margin-top: 3px;
     
+}
+
+.start-button button:hover{
+    border: 3px double #190061;
 }
 
 .quiz_box{
@@ -60,6 +79,7 @@ header{
 .quiz_box #questions{
     padding: 25px 30px 20px 30px;
     background: whitesmoke;
+    text-align: center;
 }
 
 #a,
@@ -77,10 +97,86 @@ header{
     font-size:17px;
 }
 
-#questions #a,
-#b,
-#c:hover{
+#a #b #c:hover{
     color: var(--secondary-background);
     background: var(--bright-text);
     border-color:var(--secondary-background);
+}
+
+#quiz {
+    display: none;
+}
+
+#result {
+    display: none;
+}
+
+#gameover {
+    text-align: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+#highScore{
+    height: 1.5rem;
+    border: groove 2px;
+}
+
+#high-scorePage{
+    display: none;
+    width: 50%;
+    border: solid;
+    border-color: silver;
+    border-bottom-style: groove;
+    padding-bottom: .3rem;
+    background: lightsteelblue;
+}
+
+#highscore-header{
+    display:flex;
+    justify-content: space-around;
+    border-bottom-style: outset;
+    margin-bottom: .5rem;
+    background-color: #5e6df1;
+    color: #eeeeee;
+    font-family: sans-serif;
+}
+#highscoreContainer{
+    height: 100%;
+    width: 100%;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+#initials{
+    margin: .5rem;
+    height: 1.75rem;
+}
+
+#highscore-initials{
+    display: inline-block;
+    padding-left: 9.5rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#highscore-score{
+    float: right;
+    padding-right: 8.75rem;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#finalScore{
+    padding-bottom: 0.5rem;
+    font-size: x-large;
+    font-family: sans-serif;
+    font-weight: bold;
+}
+
+#endGameBtns{
+    display: none;
 }

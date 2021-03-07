@@ -12,26 +12,23 @@
         </div>
 
     </header>
-
-    <div class="container">
-    <!--start button-->
-    <div class ='start-button'>
-        <button>Start</button>
-    </div>
-
+  
+<div class="container">
+    <button id="startbutton">Start Code Quiz</button>
     <!--highscore-->
-    <button id="startPageHighscore" onlick="showHighscore()"> High Scores</button>
+    <button id="startPageHighscore" onclick="showHighscore()"> High Scores</button>
 
     <!--Questions-->
     <main>
          <div class=quiz_box> 
             <div id="timer"> Time Left:</div>
                 <div id="questions"><p>Questions Here</p></div>
-                    <button id="a" onlick="checkAnswer('a')">A</button>
-                    <button id="b" onlick="checkAnswer('b')">B</button>
-                    <button id="c" onlick="checkAnswer('c')">C</button>
+                    <button id="a" onclick="checkAnswer('a')" >A</button>
+                    <button id="b" onclick="checkAnswer('b')">B</button>
+                    <button id="c" onclick="checkAnswer('c')">C</button>
             <div id="result"></div>
         </div>
+    </div>
 
     <!--input final score-->
         <div id="gameover">

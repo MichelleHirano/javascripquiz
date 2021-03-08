@@ -191,7 +191,7 @@ startQuizButton.addEventListener("click", generateQuizQuestion);
         //wrong & add to timer
 
         }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
-            alert("That Is Incorrect. Your penalty is minue one second!")
+            alert("That Is Incorrect. Your penalty is minus one second!")
             currentQuestionIndex++;
             timeLeft--;
             generateQuizQuestion();

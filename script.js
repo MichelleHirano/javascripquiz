@@ -63,7 +63,7 @@ var correct;
         }
     
         var currentQuestion = quizQuestions[currentQuestionIndex];
-        questions.innerhtml = "<div id='questions'>" + currentQuestion.question + "</div>";
+        questions.innerHTML = currentQuestion.question 
         buttonA.innerHTML = currentQuestion.choiceA;
         buttonB.innerHTML = currentQuestion.choiceB;
         buttonC.innerHTML = currentQuestion.choiceC;

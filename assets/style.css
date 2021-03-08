@@ -63,11 +63,21 @@
     #timer{
         font-family: sans-serif;
         background-color: #EFE2BA ;
-        color:var(--secondary-text);
-        font-size: x-large;
+        color: var(--text-color);
+        font-size: large;
         text-shadow: .5px .5px whitesmoke;
         text-align: center;
     }
+
+
+    #questions{
+        color:var(--secondary-text);
+        font-size: x-large;
+        font-weight:bold;
+        text-align: center;
+        padding: 30px 30px ;
+    }
+
     #quiz {
         display: none;
     }
@@ -104,7 +114,7 @@
         border-bottom-style: outset;
         margin-bottom: .5rem;
         background-color: var(--accent);
-        color: var(--text-color));
+        color: var(--text-color);
         font-family: sans-serif;
     }
     #highscoreContainer{

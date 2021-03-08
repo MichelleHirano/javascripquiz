@@ -180,20 +180,22 @@ startQuizButton.addEventListener("click", generateQuizQuestion);
 
     function checkAnswer(answer){
        var correct = quizQuestions[currentQuestionIndex].correctAnswer;
-    
+        
+       //correct
         if (answer === correct && currentQuestionIndex !== finalQuestionIndex){
             score++;
             alert("That Is Correct!");
             currentQuestionIndex++;
             generateQuizQuestion();
 
-            //display correct
+        //wrong & add to timer
+
         }else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex){
-            alert("That Is Incorrect.")
+            alert("That Is Incorrect. Your penalty is minue one second!")
             currentQuestionIndex++;
             timeLeft--;
             generateQuizQuestion();
-            //display wrong
+            
         }else{
             showScore();
         }
